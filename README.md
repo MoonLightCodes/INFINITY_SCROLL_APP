@@ -1,4 +1,4 @@
-# Infinite Scroll App for Dog Pictures 🐶
+# Infinite Scroll App for Dog Pictures 🐶 https://moonlightcodes.github.io/INFINITY_SCROLL_APP/
 
 ## About
 This project is an **Infinite Scroll App** that displays random dog pictures fetched dynamically from the [Dog CEO API](https://dog.ceo/dog-api/documentation). As users scroll through the content, new images are automatically loaded to create a seamless browsing experience.
