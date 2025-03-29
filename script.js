@@ -78,7 +78,7 @@ function throttle(cb , lim){
 const lp = throttle(loadPics, 1000);
 
 imgCont.addEventListener('scroll', async () => {
-  if (imgCont.scrollTop + imgCont.clientHeight >= imgCont.scrollHeight - 20) {
+  if (imgCont.scrollTop + imgCont.clientHeight >= imgCont.scrollHeight/2) {
     lp();
   }
 });
