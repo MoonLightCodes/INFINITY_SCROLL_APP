@@ -63,6 +63,7 @@ h1 {
     z-index: 1;
     backdrop-filter: blur(10px);
     box-shadow: 4px 4px 100px  rgba(3, 0, 0, 0.653);
+    /* overflow-x: hidden; */
 }
 #root {
   opacity: 0;
@@ -94,6 +95,9 @@ h1 {
   #root{
     width: 80%;
   }
+  #img-cont{
+    height: 80vh;
+  }
   
 }
 #img-selected{
@@ -106,6 +110,10 @@ h1 {
     position: absolute;
     margin-top: 10px;
     
+}
+p{
+  position: absolute;
+  bottom:10px ;
 }
 .imgC{
     margin: auto;
@@ -120,6 +128,6 @@ h1 {
 }
 .blurred {
     filter: blur(5px); /* Adjust the value (e.g., 5px) to control the blur intensity */
-    transition: filter 0.3s ease; /* Smooth transition when applying or removing blur */
+    transition: filter 0.5s ease; /* Smooth transition when applying or removing blur */
   }
-  
+ 
