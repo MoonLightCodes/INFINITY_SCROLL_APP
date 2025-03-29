@@ -15,7 +15,7 @@ const updateGridColumns = () => {
 window.onload = () => {
   imgCont.innerHTML = '';
   loadPics();
-  loadPics();
+  // loadPics();
   updateGridColumns();
 };
 
@@ -46,15 +46,18 @@ function closeme() {
 }
 
 async function loadPics() {
-  for (let i = 0; i < 10; i++) {
-    const res = await fetch('https://dog.ceo/api/breeds/image/random');
-    const data = await res.json();
+  let proms = Array(10).fill().map(()=>{
+    return fetch('https://dog.ceo/api/breeds/image/random').then((e)=>e.json()).catch((e)=>console.log(e)); 
+  });
+
+    let dta = await Promise.all(proms);
+    dta.forEach((data)=>{
     let im = document.createElement('img');
     im.src = data.message;
     im.alt = 'DOG IMAGE';
     im.classList.add('imgC');
     imgCont.appendChild(im);
-  }
+  });
 }
 
 imgCont.addEventListener('scroll', async () => {
