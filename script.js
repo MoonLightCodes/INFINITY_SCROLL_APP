@@ -45,6 +45,7 @@ function closeme() {
   root.style.height = '0';
 }
 
+var st2 = false;
 async function loadPics() {
   let proms = Array(10).fill().map(()=>{
     return fetch('https://dog.ceo/api/breeds/image/random').then((e)=>e.json()).catch((e)=>console.log(e)); 
@@ -58,10 +59,26 @@ async function loadPics() {
     im.classList.add('imgC');
     imgCont.appendChild(im);
   });
+  st2 = false;
 }
+
+let st;
+function throttle(cb , lim){
+  return async ()=>{
+    if(st||st2) return;
+    st = true;
+    st2 = true;
+    await cb();
+    setTimeout(()=>{
+      st = false;
+    }, lim);
+  }
+}
+
+const lp = throttle(loadPics, 1000);
 
 imgCont.addEventListener('scroll', async () => {
   if (imgCont.scrollTop + imgCont.clientHeight >= imgCont.scrollHeight - 20) {
-    loadPics();
+    lp();
   }
 });
